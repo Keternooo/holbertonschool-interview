@@ -3,10 +3,14 @@
 Module to determine if all boxes can be unlocked.
 """
 
+
 def canUnlockAll(boxes):
+
     """
     Determines if all boxes can be unlocked.
     """
+
+
     indexUnlocked = {0: 'unlocked'}
 
     for i in range(len(boxes)):
@@ -22,4 +26,3 @@ def canUnlockAll(boxes):
                     indexUnlocked[key] = 'unlocked'
 
     return len(indexUnlocked) == len(boxes)
-
