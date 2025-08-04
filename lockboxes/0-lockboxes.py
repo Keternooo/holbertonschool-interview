@@ -10,7 +10,6 @@ def canUnlockAll(boxes):
     Determines if all boxes can be unlocked.
     """
 
-
     indexUnlocked = {0: 'unlocked'}
 
     for i in range(len(boxes)):
