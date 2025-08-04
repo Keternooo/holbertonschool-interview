@@ -1,6 +1,12 @@
 #!/usr/bin/python3
+"""
+Module to determine if all boxes can be unlocked.
+"""
 
 def canUnlockAll(boxes):
+    """
+    Determines if all boxes can be unlocked.
+    """
     indexUnlocked = {0: 'unlocked'}
 
     for i in range(len(boxes)):
@@ -8,6 +14,7 @@ def canUnlockAll(boxes):
             for key in boxes[i]:
                 if key < len(boxes) and key not in indexUnlocked:
                     indexUnlocked[key] = 'unlocked'
+
     for i in range(len(boxes)):
         if i in indexUnlocked:
             for key in boxes[i]:
