@@ -13,7 +13,7 @@ def minOperations(n):
         if len(aa + oldaa) == n:
             operations += 1
             break
-        elif len(aa + oldaa) < n:
+        elif len(aa + oldaa) > n:
             operations += 2
             break
         oldaa = aa
