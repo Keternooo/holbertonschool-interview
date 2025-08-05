@@ -4,6 +4,7 @@
 Module to determine the minimum number of operations to reach a target number
 """
 
+
 def minOperations(n):
     if n <= 1:
         return 0
