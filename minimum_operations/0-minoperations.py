@@ -11,7 +11,7 @@ def minOperations(n):
     oldaa = ''
     while len(aa) < n:
         if len(aa + oldaa) > n:
-            operations++
+            operations += 1
             break
         oldaa = aa
         aa += oldaa
