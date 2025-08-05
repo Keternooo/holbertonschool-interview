@@ -10,8 +10,8 @@ def minOperations(n):
     aa = 'h'
     oldaa = ''
     while len(aa) < n:
-        if len(aa + oldaa) >= n:
-            operations += 1
+        if len(aa + oldaa) > n:
+            operations++
             break
         oldaa = aa
         aa += oldaa
