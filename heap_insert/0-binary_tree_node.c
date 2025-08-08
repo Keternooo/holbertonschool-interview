@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * binary_tree_node: Create a tree or append some childs
+ * binary_tree_node - Create a tree or append some childs
  * @parent: The tree to append
  * @value: The value to append
  * Return:  The new node or 0 (fail)
