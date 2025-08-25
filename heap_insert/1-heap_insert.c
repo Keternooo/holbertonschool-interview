@@ -45,7 +45,12 @@ heap_t *find(heap_t *root)
 	return (NULL);
 }
 
-
+/**
+ * heap_insert - Insert into heap
+ * @root: root node
+ * @value: value to insert
+ * Return: pointer to the new root or NULL
+**/
 heap_t *heap_insert(heap_t **root, int value)
 {
 	heap_t *new, *parent;
