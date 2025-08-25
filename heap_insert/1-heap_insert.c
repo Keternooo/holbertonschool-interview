@@ -2,6 +2,12 @@
 #include <stdlib.h>
 
 
+/**
+ * exchange_values - Swap the value from a to b and b to a
+ * @a: First argument
+ * @b: Second argument
+**/
+
 void exchange_values(heap_t *a, heap_t *b)
 {
 	int temp = a->n;
