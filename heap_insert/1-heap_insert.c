@@ -21,7 +21,7 @@ heap_t *find(heap_t *root)
 	while (front < back)
 	{
 		node = queue[front++];
-		if (!node->left || !node-right)
+		if (!node->left || !node->right)
 		{
 			free(queue);
 			return (node);
