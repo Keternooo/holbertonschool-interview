@@ -1,12 +1,15 @@
 #include "binary_trees.h"
 #include <stdlib.h>
 
+
 void exchange_values(heap_t *a, heap_t *b)
 {
 	int temp = a->n;
+
 	a->n = b->n;
 	b->n = temp;
 }
+
 
 heap_t *find(heap_t *root)
 {
