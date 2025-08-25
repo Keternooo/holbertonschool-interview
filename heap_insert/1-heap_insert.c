@@ -7,13 +7,6 @@
  * @a: First argument
  * @b: Second argument
 **/
-
-/**
- * find - Find the first parent
- * @root: root of the heap
- * Return: pointer to the parent node or NULL
-**/
-
 void exchange_values(heap_t *a, heap_t *b)
 {
 	int temp = a->n;
@@ -22,7 +15,11 @@ void exchange_values(heap_t *a, heap_t *b)
 	b->n = temp;
 }
 
-
+/**
+ * find - Find the first parent
+ * @root: root of the heap
+ * Return: pointer to the parent node or NULL
+**/
 heap_t *find(heap_t *root)
 {
 	heap_t **queue, *node;
