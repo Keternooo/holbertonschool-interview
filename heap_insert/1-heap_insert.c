@@ -45,7 +45,7 @@ heap_t *heap_insert(heap_t **root, int value)
 	}
 	parent = find(*root);
 	if (!parent)
-		reuturn (NULL);
+		return (NULL);
 	new = binary_tree_node(parent, value);
 	if (!new)
 		return (NULL);
