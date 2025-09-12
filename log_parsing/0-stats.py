@@ -6,7 +6,6 @@ Module to parse log and count statusCode and file size.
 import signal
 import sys
 
-oldInput = None
 statusObj = {
     "200": 0,
     "301": 0,
@@ -40,18 +39,10 @@ def main():
 
     signal.signal(signal.SIGINT, signal_handler)
 
-    while True:
-        try:
-            newInput = input()
-        except EOFError:
-            break
-
-        if oldInput == newInput:
-            continue
+    for line in sys.stdin:
         counter += 1
-        oldInput = newInput
 
-        firstSplit = oldInput.split('" ')[1].split(" ")
+        firstSplit = line.split('" ')[1].split(" ")
         statusCode = firstSplit[0]
         fileSize = firstSplit[1]
         statusObj[str(statusCode)] += 1
