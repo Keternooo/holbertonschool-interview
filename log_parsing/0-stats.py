@@ -45,11 +45,13 @@ def main():
 
     for line in sys.stdin:
         counter += 1
-
-        firstSplit = line.split('" ')[1].split(" ")
-        statusCode = firstSplit[0]
-        fileSize = firstSplit[1]
-        statusObj[str(statusCode)] += 1
+		try:
+        	firstSplit = line.split('" ')[1].split(" ")
+        	statusCode = firstSplit[0]
+        	fileSize = firstSplit[1]
+        except ():
+            continue
+		statusObj[str(statusCode)] += 1
         fileSizeTotal += int(fileSize)
 
         if counter % 10 == 0:
