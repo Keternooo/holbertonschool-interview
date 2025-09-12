@@ -31,6 +31,9 @@ def signal_handler(sig, frame):
     sys.exit(0)
 
 def printA():
+	"""
+	Print function for printing like desired
+	"""
 	print("File size: {:d}".format(fileSizeTotal))
             for a in statusObj:
                 if statusObj[a] != 0:
