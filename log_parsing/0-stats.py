@@ -19,31 +19,29 @@ statusObj = {
 fileSizeTotal = 0
 counter = 0
 
-
-def signal_handler(sig, frame):
-    """
-    Function to catch SIGINT signal
-    """
-    print("File size: {:d}".format(fileSizeTotal))
-    for a in statusObj:
-        if statusObj[a] != 0:
-            print("{}: {}".format(a, statusObj[a]))
-    sys.exit(0)
-
 def printA():
 	"""
 	Print function for printing like desired
 	"""
 	print("File size: {:d}".format(fileSizeTotal))
-            for a in statusObj:
-                if statusObj[a] != 0:
-                    print("{}: {}".format(a, statusObj[a]))
+        for a in statusObj:
+            if statusObj[a] != 0:
+                print("{}: {}".format(a, statusObj[a]))
+
+def signal_handler(sig, frame):
+    """
+    Function to catch SIGINT signal
+    """
+    printA()
+    sys.exit(0)
+
+
 
 def main():
     """
     Main function to parse input and print stats
     """
-    global oldInput, counter, fileSizeTotal
+    global counter, fileSizeTotal
 
     signal.signal(signal.SIGINT, signal_handler)
 
@@ -57,7 +55,7 @@ def main():
         fileSizeTotal += int(fileSize)
 
         if counter % 10 == 0:
-            printA()
+        	printA()
 
 	printA()
 
