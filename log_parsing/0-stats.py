@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 
+"""
+Module to parse log and count
+"""
 import signal
 import sys
 
@@ -18,6 +21,9 @@ fileSizeTotal = 0
 counter = 0
 
 def signal_handler(sig, frame):
+     """
+     Function for catch SIGINT signal
+     """
      print("File size: {:d}".format(fileSizeTotal))
      for a in statusObj:
           if statusObj[a] != 0:
