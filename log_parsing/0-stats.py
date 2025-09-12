@@ -19,6 +19,7 @@ statusObj = {
 fileSizeTotal = 0
 counter = 0
 
+
 def printA():
     """
     Print function for printing like desired
@@ -28,12 +29,14 @@ def printA():
         if statusObj[a] != 0:
             print("{}: {}".format(a, statusObj[a]))
 
+
 def signal_handler(sig, frame):
     """
     Function to catch SIGINT signal
     """
     printA()
     sys.exit(0)
+
 
 def main():
     """
@@ -60,6 +63,7 @@ def main():
             printA()
 
     printA()
+
 
 if __name__ == "__main__":
     main()
