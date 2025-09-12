@@ -30,6 +30,11 @@ def signal_handler(sig, frame):
             print("{}: {}".format(a, statusObj[a]))
     sys.exit(0)
 
+def printA():
+	print("File size: {:d}".format(fileSizeTotal))
+            for a in statusObj:
+                if statusObj[a] != 0:
+                    print("{}: {}".format(a, statusObj[a]))
 
 def main():
     """
@@ -49,11 +54,9 @@ def main():
         fileSizeTotal += int(fileSize)
 
         if counter % 10 == 0:
-            print("File size: {:d}".format(fileSizeTotal))
-            for a in statusObj:
-                if statusObj[a] != 0:
-                    print("{}: {}".format(a, statusObj[a]))
+            printA()
 
+	printA()
 
 if __name__ == "__main__":
     main()
