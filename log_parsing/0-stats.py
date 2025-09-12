@@ -20,13 +20,13 @@ fileSizeTotal = 0
 counter = 0
 
 def printA():
-	"""
-	Print function for printing like desired
-	"""
-	print("File size: {:d}".format(fileSizeTotal))
-        for a in statusObj:
-            if statusObj[a] != 0:
-                print("{}: {}".format(a, statusObj[a]))
+    """
+    Print function for printing like desired
+    """
+    print("File size: {:d}".format(fileSizeTotal))
+    for a in statusObj:
+        if statusObj[a] != 0:
+            print("{}: {}".format(a, statusObj[a]))
 
 def signal_handler(sig, frame):
     """
@@ -34,8 +34,6 @@ def signal_handler(sig, frame):
     """
     printA()
     sys.exit(0)
-
-
 
 def main():
     """
@@ -55,9 +53,9 @@ def main():
         fileSizeTotal += int(fileSize)
 
         if counter % 10 == 0:
-        	printA()
+            printA()
 
-	printA()
+    printA()
 
 if __name__ == "__main__":
     main()
