@@ -48,9 +48,10 @@ def main():
 		try:
         	firstSplit = line.split('" ')[1].split(" ")
         	statusCode = firstSplit[0]
-        	fileSize = firstSplit[1]
-        except ():
-            continue
+    		fileSize = firstSplit[1]
+		except ():
+        	continue
+		
 		statusObj[str(statusCode)] += 1
         fileSizeTotal += int(fileSize)
 
