@@ -1,8 +1,9 @@
 #!/usr/bin/python3
+"""
+Module to parse log and count statusCode and file size.
+"""
 
-"""
-Module to parse log and count statusCode and file size
-"""
+
 import signal
 import sys
 
