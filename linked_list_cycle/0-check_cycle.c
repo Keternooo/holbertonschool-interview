@@ -22,7 +22,8 @@ int check_cycle(listint_t *list)
 		else
 			temp = temp->next;
 
-		if(check->next == temp)
+		check = check->next;
+		if(check == temp)
 			return (1);
 	}
 
