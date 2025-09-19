@@ -1,5 +1,11 @@
 #include "lists.h"
 
+/**
+ * check_cycle - Function to check if the list has a cycle
+ * @list: the list to analyse
+ * Return: 1 if a cycle is in it and 0 if no cycle
+ */
+
 int check_cycle(listint_t *list)
 {
 	listint_t *temp, *check = list;
@@ -11,10 +17,10 @@ int check_cycle(listint_t *list)
 
 	while(temp)
 	{
-		if(list->next == temp)
-			temp = list->next->next;
+		if(temp->next)
+			temp = temp->next->next;
 		else
-			temp = list->next;
+			temp = temp->next;
 
 		if(check->next == temp)
 			return (1);
