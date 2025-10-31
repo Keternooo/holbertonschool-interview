@@ -2,47 +2,32 @@
 
 int slide_line(int *line, size_t size, int direction)
 {
-	int *place_here = NULL;
-	int *left = NULL;
-	int *right = NULL;
+    int *place_here = line;
+    int *i;
 
-	if (direction == SLIDE_LEFT)
-	{
-		place_here = line;
-		left = line;
+    if (direction == SLIDE_LEFT)
+    {
+        for (i = line; i < line + size; i++)
+        {
+            if (*i == 0)
+                continue;
 
-		while (left < line + size)
-		{
-			// skip zeros
-			if (*left == 0)
-			{
-				left++;
-				continue;
-			}
+            // Si place_here n'est pas i, on "glisse" le nombre
+            if (place_here != i)
+            {
+                *place_here = *i;
+                *i = 0;
+            }
 
-			right = left + 1;
-			while (right < line + size && *right == 0)
-				right++;
+            // Fusion possible
+            if ((place_here + 1) < (line + size) && *place_here == *(place_here + 1))
+            {
+                *place_here *= 2;
+                *(place_here + 1) = 0;
+            }
 
-			if (right < line + size && *right == *left)
-			{
-				*place_here = *left * 2;
-				*left = 0;
-				*right = 0;
-				place_here++;
-				left = right + 1;
-			}
-			else
-			{
-				if (place_here != left)
-				{
-					*place_here = *left;
-					*left = 0;
-				}
-				place_here++;
-				left++;
-			}
-		}
-	}
-	return (1);
+            place_here++;
+        }
+    }
+    return (1);
 }
