@@ -9,39 +9,39 @@ int slide_line(int *line, size_t size, int direction)
 	if (direction == SLIDE_LEFT)
 	{
 		place_here = line;
-		left = place_here;
+		left = line;
 
-		while (left < line + (size - 1))
+		while (left < line + size)
 		{
-			while (*left == 0 && left < line + (size - 1))
+			// skip zeros
+			if (*left == 0)
 			{
 				left++;
+				continue;
 			}
+
 			right = left + 1;
-			while (right < line + (size))
+			while (right < line + size && *right == 0)
+				right++;
+
+			if (right < line + size && *right == *left)
 			{
-				if (*right == *left)
-				{
-					*place_here = *left * 2;
-					if (place_here != left)
-					{
-						*left = 0;
-					}
-					*right = 0;
-					place_here++;
-					break;
-				}
-				else
-				{
-					right++;
-				}
+				*place_here = *left * 2;
+				*left = 0;
+				*right = 0;
+				place_here++;
+				left = right + 1;
 			}
-			left++;
-		}
-		if (*(line + size - 1) && !*place_here)
-		{
-			*place_here = *(line + size - 1);
-			*(line + size - 1) = 0;
+			else
+			{
+				if (place_here != left)
+				{
+					*place_here = *left;
+					*left = 0;
+				}
+				place_here++;
+				left++;
+			}
 		}
 	}
 	return (1);
