@@ -1,33 +1,70 @@
 #include "slide_line.h"
 
+/**
+ * slide_line - slides and merges an array of integers like 2048
+ * @line: array of integers
+ * @size: number of elements in the array
+ * @direction: SLIDE_LEFT or SLIDE_RIGHT
+ *
+ * Return: 1 on success, 0 on failure
+ */
 int slide_line(int *line, size_t size, int direction)
 {
-    int *place_here = line;
-    int *i;
+    size_t i, j;
+
+    if (!line || (direction != SLIDE_LEFT && direction != SLIDE_RIGHT))
+        return (0);
 
     if (direction == SLIDE_LEFT)
     {
-        for (i = line; i < line + size; i++)
+        /* Slide left */
+        for (i = 0; i < size; i++)
         {
-            if (*i == 0)
+            if (line[i] == 0)
                 continue;
 
-            // Si place_here n'est pas i, on "glisse" le nombre
-            if (place_here != i)
+            /* Move current number as far left as possible */
+            j = i;
+            while (j > 0 && line[j - 1] == 0)
             {
-                *place_here = *i;
-                *i = 0;
+                line[j - 1] = line[j];
+                line[j] = 0;
+                j--;
             }
 
-            // Fusion possible
-            if ((place_here + 1) < (line + size) && *place_here == *(place_here + 1))
+            /* Merge with next number if equal */
+            if (j > 0 && line[j - 1] == line[j])
             {
-                *place_here *= 2;
-                *(place_here + 1) = 0;
+                line[j - 1] *= 2;
+                line[j] = 0;
             }
-
-            place_here++;
         }
     }
+    else if (direction == SLIDE_RIGHT)
+    {
+        /* Slide right */
+        for (i = size; i-- > 0;)
+        {
+            if (line[i] == 0)
+                continue;
+
+            /* Move current number as far right as possible */
+            j = i;
+            while (j < size - 1 && line[j + 1] == 0)
+            {
+                line[j + 1] = line[j];
+                line[j] = 0;
+                j++;
+            }
+
+            /* Merge with previous number if equal */
+            if (j < size - 1 && line[j + 1] == line[j])
+            {
+                line[j + 1] *= 2;
+                line[j] = 0;
+            }
+        }
+    }
+
     return (1);
 }
